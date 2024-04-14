@@ -1,0 +1,41 @@
+Sending emails in SSIS can be accomplished using the "Send Mail Task" component. Here's a basic guide on how to set it up:
+
+1. Drag and Drop the Send Mail Task:
+   - In your SSIS package Control Flow, drag and drop the "Send Mail Task" from the SSIS Toolbox onto the design surface.
+
+2. Configure the Send Mail Task:
+   - Double-click on the "Send Mail Task" to open its editor.
+   - In the editor, you'll find various tabs to configure different aspects of the email.
+   - On the "General" tab, specify a name for the task.
+   - On the "Mail" tab, configure the SMTP connection manager to use for sending emails. If you don't have one yet, you can create a new one by clicking "New Connection...".
+
+3. Specify Email Properties:
+   - In the "From" field, enter the sender's email address.
+   - In the "To" field, enter the recipient's email address(es). You can specify multiple recipients separated by semicolons.
+   - Optionally, configure the "CC" and "BCC" fields for carbon copy and blind carbon copy recipients, respectively.
+   - Enter the email subject in the "Subject" field.
+   - Optionally, configure the "Priority" and "Sensitivity" settings.
+
+4. Email Body:
+   - You can specify the email body directly in the "MessageSource" property by typing it in or using expressions.
+   - Alternatively, you can load the email body from a file by selecting "File connection" and specifying a connection manager pointing to a file containing the email body.
+
+5. Attachments:
+   - If you need to include attachments, you can specify them in the "Attachments" property. You can use expressions here to dynamically specify attachment paths.
+
+6. Expressions:
+   - You can use expressions to dynamically set various properties of the Send Mail Task, such as "To", "Subject", "MessageSource", etc. This allows for flexibility in sending emails based on dynamic conditions or variables.
+
+7. Testing and Execution:
+   - Test the Send Mail Task by executing the SSIS package. Ensure that the email is sent successfully to the specified recipients.
+   - Monitor the SSIS package execution to verify that the Send Mail Task runs without errors.
+
+8. Error Handling and Logging:
+   - Implement error handling mechanisms to capture and handle any errors that may occur during the email sending process.
+   - Consider logging details of successful email sends and any errors encountered for auditing and troubleshooting purposes.
+
+9. Deployment and Scheduling:
+   - Once tested successfully, deploy the SSIS package to the production environment.
+   - Schedule the package to run at the desired intervals using SQL Server Agent jobs or another scheduling mechanism.
+
+By following these steps, you can set up a basic email sending process in SSIS using the Send Mail Task component.

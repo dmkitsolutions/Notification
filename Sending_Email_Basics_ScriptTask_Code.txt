@@ -1,0 +1,37 @@
+using System.Net;
+using System.Net.Mail;
+
+public void Main()
+{
+    // Email configuration
+    string smtpServer = "your_smtp_server";
+    int smtpPort = 587; // or any other port
+    string fromEmail = "your_email@example.com";
+    string toEmail = "recipient@example.com";
+    string subject = "Subject of the Email";
+    string body = "Body of the Email";
+
+    // Create a MailMessage object
+    MailMessage mail = new MailMessage(fromEmail, toEmail, subject, body);
+    mail.IsBodyHtml = true; // You can set this to false if the body is plain text
+
+    // Create a SmtpClient object
+    SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
+    smtpClient.EnableSsl = true; // Set this to true if using SSL/TLS
+
+    // Add credentials if required
+    smtpClient.Credentials = new NetworkCredential("your_username", "your_password");
+
+    try
+    {
+        // Send the email
+        smtpClient.Send(mail);
+        Dts.TaskResult = (int)ScriptResults.Success;
+    }
+    catch (Exception ex)
+    {
+        // Handle any errors
+        Dts.Events.FireError(0, "Send Email Script", ex.Message, String.Empty, 0);
+        Dts.TaskResult = (int)ScriptResults.Failure;
+    }
+}
