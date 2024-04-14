@@ -1,0 +1,8 @@
+SMT001,Jabari Omari,M
+SMT002,Lupita Khamis,F
+SMT003,Sanya Jude,F
+SMT005,Kofi Mosi,M
+SMT006,Zembwela Bambo,M
+SMT007,Faraji Chike,M
+SMT008,Onyango Brown,M
+SMT009,Mwajuma Chausiku,F
